@@ -1,8 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using DomainModel.Services;
+using Presentation.Commons;
+using Presentation.Presentors;
+using Presentation.Views;
 
 namespace UI
 {
@@ -16,7 +17,18 @@ namespace UI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+
+            var controller = new ApplicationController(new LightInjectAdapder())
+                // сервисы
+                .RegisterService<IUserService, UserService>()
+
+                // вьюшки
+                .RegisterView<ISignInView, SignInForm>()
+
+                .RegisterInstance(new ApplicationContext());
+
+            // открываем окно авторизации
+            controller.Run<SignInPresentor>();
         }
     }
 }

@@ -41,7 +41,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commons\ApplicationController.cs" />
+    <Compile Include="Commons\BasePresentor.cs" />
+    <Compile Include="Commons\IApplicationController.cs" />
+    <Compile Include="Commons\IContainer.cs" />
+    <Compile Include="Commons\IPresenter.cs" />
+    <Compile Include="Commons\IView.cs" />
+    <Compile Include="Presentors\SignInPresentor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\ISignInView.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DomainModel\DomainModel.csproj">
+      <Project>{AB229D1C-B2A6-45B8-A2CC-1D2891B7941D}</Project>
+      <Name>DomainModel</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

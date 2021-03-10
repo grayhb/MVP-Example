@@ -1,8 +1,8 @@
 ﻿namespace DomainModel.Services
 {
-    public class LoginService : ILoginService
+    public class UserService : IUserService
     {
-        public bool Login(User user)
+        public bool SignIn(User user)
         {
             return !string.IsNullOrEmpty(user.Login) && !string.IsNullOrEmpty(user.Password);
         }
